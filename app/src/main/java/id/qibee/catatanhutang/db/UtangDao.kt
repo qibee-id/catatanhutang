@@ -8,13 +8,13 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface UtangDao {
-    @Query("SELECT * FROM utang_table ORDER BY jatuhTempo ASC")
+    @Query("SELECT * FROM utang_table ORDER BY jatuh_tempo ASC")
     fun getListUtang(): Flow<List<Utang>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insert(utang: Utang)
+    fun insert(utang: Utang)
 
     @Query("DELETE FROM utang_table")
-    suspend fun deleteAll()
+    fun deleteAll()
 
 }
